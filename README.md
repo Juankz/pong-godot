@@ -1,3 +1,6 @@
+
+### PONG GODOT [Español]
+
 Un juego Pong completo hecho con Godot para móviles y PCs.
 
 Este proyecto es una extensión de [Un juego 2D simple con Godot](http://docs.godotengine.org/en/stable/tutorials/step_by_step/simple_2d_game.html) el cual solo cubre las mecánicas básicas.
@@ -8,6 +11,9 @@ Así para convertirlo en un juego completo se pretende:
 * Mejorar mecánicas
 * Añadir una inteligencia articifial simple
 
+___
+
+### PONG GODOT [English]
 
 A complete pong game made with Godot for mobile and desktop.
 
