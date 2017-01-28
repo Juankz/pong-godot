@@ -40,6 +40,8 @@ func _process(delta):
 	
 	if((ball_pos.y < 0 and direction.y < 0) or (ball_pos.y > screen_size.y and direction.y > 0)):
 		direction.y *= -1
+		var hit_edge = get_node("SamplePlayer").play("hit",true);
+		get_node("SamplePlayer").set_pitch_scale(hit_edge,5);
 	
 	# Flip, change direction and increase speed when touching pads
 	if ((left_rect.has_point(ball_pos) and direction.x < 0) or (right_rect.has_point(ball_pos) and direction.x > 0)):
@@ -50,9 +52,13 @@ func _process(delta):
 		#Start particle emission
 		particle.set_pos(ball_pos)
 		particle.set_emitting (true)
+		#Play sound
+		get_node("SamplePlayer").play("hit",false);
 	
 	# Check gameover
 	if (ball_pos.x < 0 or ball_pos.x > screen_size.x):
+		#play audio
+		get_node("SamplePlayer").play("lose",false);
 		if (ball_pos.x < 0) :  
 			score2+=1
 			get_node("UI/Score2").set_text(str(score2))
