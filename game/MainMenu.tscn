@@ -1,0 +1,178 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://themes/kenney.tres" type="Theme" id=1]
+[ext_resource path="res://scripts/button.gd" type="Script" id=2]
+[ext_resource path="res://themes/Titles.tres" type="Theme" id=3]
+[ext_resource path="res://gui/tres/grey_panel.tres" type="StyleBox" id=4]
+
+[node name="Control" type="Control"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 1 )
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+script/script = ExtResource( 2 )
+
+[node name="Panel" type="Panel" parent="."]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 168.0
+margin/top = 80.0
+margin/right = 510.0
+margin/bottom = 362.0
+
+[node name="Label" type="Label" parent="Panel"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+theme/theme = ExtResource( 3 )
+margin/left = 39.0
+margin/top = 33.0
+margin/right = 116.0
+margin/bottom = 71.0
+text = "PONG"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 39.0
+margin/top = 82.0
+margin/right = 320.0
+margin/bottom = 246.0
+alignment = 0
+
+[node name="un_jugador" type="Button" parent="Panel/VBoxContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 281.0
+margin/bottom = 42.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "1 JUGADOR"
+flat = false
+
+[node name="dos_jugadores" type="Button" parent="Panel/VBoxContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 46.0
+margin/right = 281.0
+margin/bottom = 88.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "2 Jugadores"
+flat = false
+
+[node name="ajustes" type="Button" parent="Panel/VBoxContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 92.0
+margin/right = 281.0
+margin/bottom = 134.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Ajustes"
+flat = false
+
+[node name="creditos" type="Button" parent="Panel/VBoxContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 138.0
+margin/right = 281.0
+margin/bottom = 180.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Créditos"
+flat = false
+
+[node name="PopupPanel" type="PopupPanel" parent="."]
+
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 207.0
+margin/top = 158.0
+margin/right = 493.0
+margin/bottom = 295.0
+custom_styles/panel = ExtResource( 4 )
+popup/exclusive = false
+
+[node name="Label" type="Label" parent="PopupPanel"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 22.0
+margin/top = 38.0
+margin/right = 276.0
+margin/bottom = 57.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Creado por Juan Velandia"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Button" type="Button" parent="PopupPanel"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 123.0
+margin/top = 78.0
+margin/right = 154.0
+margin/bottom = 98.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "OK"
+flat = false
+
+[connection signal="pressed" from="Panel/VBoxContainer/dos_jugadores" to="." method="_on_dos_jugadores_pressed"]
+
+[connection signal="pressed" from="Panel/VBoxContainer/creditos" to="." method="_on_creditos_pressed"]
+
+[connection signal="pressed" from="PopupPanel/Button" to="." method="_on_ok_pressed"]
+
+

@@ -1,0 +1,112 @@
+[gd_resource type="Theme" load_steps=13 format=1]
+
+[ext_resource path="res://gui/tres/blu_button_normla.tres" type="StyleBox" id=1]
+[ext_resource path="res://gui/tres/blu_button_pressed.tres" type="StyleBox" id=2]
+[ext_resource path="res://gui/blue_boxCheckmark.png" type="Texture" id=3]
+[ext_resource path="res://gui/blue_boxTick.png" type="Texture" id=4]
+[ext_resource path="res://gui/grey_circle.png" type="Texture" id=5]
+[ext_resource path="res://gui/grey_box.png" type="Texture" id=6]
+[ext_resource path="res://gui/tres/grey_panel.tres" type="StyleBox" id=7]
+[ext_resource path="res://gui/red_cross.png" type="Texture" id=8]
+[ext_resource path="res://gui/blue_button10.png" type="Texture" id=9]
+[ext_resource path="res://Fonts/pixel.fnt" type="BitmapFont" id=10]
+
+[sub_resource type="StyleBoxTexture" id=1]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+texture = ExtResource( 9 )
+margin/left = 12.0
+margin/right = 12.0
+margin/top = 12.0
+margin/bottom = 12.0
+expand_margin/left = 0.0
+expand_margin/right = 0.0
+expand_margin/top = 0.0
+expand_margin/bottom = 0.0
+draw_center = true
+
+[sub_resource type="StyleBoxFlat" id=2]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+bg_color = Color( 0.111694, 0.474526, 0.714844, 1 )
+light_color = Color( 0.44574, 0.737425, 0.851562, 1 )
+dark_color = Color( 0, 0.404175, 0.601562, 1 )
+border_size = 0
+border_blend = true
+draw_bg = true
+
+[resource]
+
+default_font = ExtResource( 10 )
+Button/colors/font_color = Color( 0.878431, 0.878431, 0.878431, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_hover = Color( 0.941176, 0.941176, 0.941176, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = null
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = ExtResource( 1 )
+Button/styles/normal = ExtResource( 1 )
+Button/styles/pressed = ExtResource( 2 )
+CheckBox/colors/font_color = Color( 0.878431, 0.878431, 0.878431, 1 )
+CheckBox/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+CheckBox/colors/font_color_hover = Color( 0.941176, 0.941176, 0.941176, 1 )
+CheckBox/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+CheckBox/constants/check_vadjust = 0
+CheckBox/constants/hseparation = 4
+CheckBox/fonts/font = null
+CheckBox/icons/checked = ExtResource( 3 )
+CheckBox/icons/radio_checked = ExtResource( 4 )
+CheckBox/icons/radio_unchecked = ExtResource( 5 )
+CheckBox/icons/unchecked = ExtResource( 6 )
+CheckBox/styles/disabled = null
+CheckBox/styles/focus = null
+CheckBox/styles/hover = null
+CheckBox/styles/normal = null
+CheckBox/styles/pressed = null
+Label/colors/font_color = Color( 1, 1, 1, 1 )
+Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
+Label/constants/line_spacing = 3
+Label/constants/shadow_as_outline = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/fonts/font = null
+Panel/styles/panel = ExtResource( 7 )
+Panel/styles/panelf = null
+Panel/styles/panelnc = null
+Tabs/colors/font_color_bg = Color( 0.180392, 0.0509804, 0.894118, 1 )
+Tabs/colors/font_color_fg = Color( 0.328125, 0.0422974, 0.0422974, 1 )
+Tabs/constants/hseparation = 10
+Tabs/constants/label_valign_bg = 2
+Tabs/constants/label_valign_fg = 0
+Tabs/constants/top_margin = 24
+Tabs/fonts/font = null
+Tabs/icons/close = ExtResource( 8 )
+Tabs/icons/decrement = null
+Tabs/icons/decrement_hilite = null
+Tabs/icons/increment = null
+Tabs/icons/increment_hilite = null
+Tabs/styles/button = ExtResource( 1 )
+Tabs/styles/button_pressed = ExtResource( 2 )
+Tabs/styles/panel = ExtResource( 7 )
+Tabs/styles/tab_bg = SubResource( 1 )
+Tabs/styles/tab_fg = SubResource( 2 )
+ToolButton/colors/font_color = Color( 0.878431, 0.878431, 0.878431, 1 )
+ToolButton/colors/font_color_disabled = Color( 0.9, 0.95, 1, 0.3 )
+ToolButton/colors/font_color_hover = Color( 0.941176, 0.941176, 0.941176, 1 )
+ToolButton/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+ToolButton/constants/hseparation = 3
+ToolButton/fonts/font = null
+ToolButton/styles/disabled = ExtResource( 1 )
+ToolButton/styles/focus = ExtResource( 1 )
+ToolButton/styles/hover = ExtResource( 1 )
+ToolButton/styles/normal = ExtResource( 1 )
+ToolButton/styles/pressed = ExtResource( 2 )
+

@@ -17,7 +17,7 @@
 offsets = FloatArray( 0, 0.520468, 0.672515, 1 )
 colors = ColorArray( 0.690196, 0.901961, 0.988235, 1, 0.730054, 0.914574, 0.989749, 1, 0.815647, 0.94166, 0.992999, 0.886344, 1, 1, 1, 0 )
 
-[sub_resource type="SampleLibrary" id=4]
+[sub_resource type="SampleLibrary" id=2]
 
 samples/hit = { "db":0.0, "pitch":2.0, "sample":ExtResource( 6 ) }
 samples/lose = { "db":-16.0, "pitch":1.0, "sample":ExtResource( 7 ) }
@@ -88,7 +88,7 @@ color/color_ramp = SubResource( 1 )
 [node name="SamplePlayer" type="SamplePlayer" parent="."]
 
 config/polyphony = 1
-config/samples = SubResource( 4 )
+config/samples = SubResource( 2 )
 default/volume_db = 0.0
 default/pitch_scale = 1.0
 default/pan = 0.0
@@ -131,9 +131,9 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 249.0
+margin/left = 248.0
 margin/top = 28.0
-margin/right = 289.0
+margin/right = 288.0
 margin/bottom = 104.0
 custom_fonts/font = SubResource( 3 )
 text = "0"
