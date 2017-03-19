@@ -29,3 +29,9 @@ Hence, to make this a complete game, is needed:
 * ~~Add audio~~
 * Improve mechanics
 * Add a simple AI
+
+###Capturas de pantalla / Screenshots
+
+![game](https://cloud.githubusercontent.com/assets/18577412/23342027/8eb82b60-fc20-11e6-975a-67623f6cb9fc.png)
+
+![captura de pantalla de 2017-02-26 12-37-08](https://cloud.githubusercontent.com/assets/18577412/23342036/9dd35c6e-fc20-11e6-8fbc-2abe74b0ac70.png)
