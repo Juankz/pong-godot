@@ -17,4 +17,5 @@ func _on_creditos_pressed():
 
 
 func _on_dos_jugadores_pressed():
-	get_node("/root/scene_manager").set_scene("res://helloScene.tscn")
+#	get_node("/root/scene_manager").set_scene("res://helloScene.tscn")
+	get_tree().change_scene("res://helloScene.tscn")
