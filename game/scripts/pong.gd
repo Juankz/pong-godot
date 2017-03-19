@@ -14,9 +14,9 @@ var score2 = 0
 var left_pos
 var right_pos
 # Constant for pad speed (in pixels/second)
-const INITIAL_BALL_SPEED = 200
+export var INITIAL_BALL_SPEED = 200
 # Speed of the ball (also in pixels/second)
-var ball_speed = INITIAL_BALL_SPEED
+var ball_speed
 # Constant for pads speed
 const PAD_SPEED = 180
 var particle
@@ -27,6 +27,7 @@ var ball_pos
 
 
 func _ready():
+	randomize()
 	particle = get_node("Particles2D")
 	screen_size = get_viewport_rect().size
 	pad_size = get_node("left").get_texture().get_size() * get_node("left").get_scale()
@@ -37,6 +38,7 @@ func _ready():
 	area_lpad = get_node("left/Area2D")
 	area_rpad = get_node("right/Area2D")
 	ball_pos = get_node("ball").get_pos()
+	ball_speed = INITIAL_BALL_SPEED
 
 func _process(delta):
 	ball_pos = get_node("ball").get_pos()

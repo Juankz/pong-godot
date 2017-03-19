@@ -49,6 +49,7 @@ fallback/0 = ExtResource( 9 )
 [node name="Node2D" type="Node2D"]
 
 script/script = ExtResource( 1 )
+INITIAL_BALL_SPEED = 400
 
 [node name="left" type="Sprite" parent="." groups=[ "Paddle" ]]
 
