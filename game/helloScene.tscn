@@ -1,28 +1,44 @@
-[gd_scene load_steps=15 format=1]
+[gd_scene load_steps=17 format=1]
 
 [ext_resource path="res://scripts/pong.gd" type="Script" id=1]
-[ext_resource path="res://pong_assets/paddle_05.png" type="Texture" id=2]
-[ext_resource path="res://pong_assets/paddle_01.png" type="Texture" id=3]
+[ext_resource path="res://pong_assets/paddle_05.atex" type="Texture" id=2]
+[ext_resource path="res://pong_assets/paddle_01.atex" type="Texture" id=3]
 [ext_resource path="res://pong_assets/ballBlue_10.png" type="Texture" id=4]
 [ext_resource path="res://pong_assets/particle.png" type="Texture" id=5]
 [ext_resource path="res://pong_assets/hit.smp" type="Sample" id=6]
 [ext_resource path="res://pong_assets/lose.smp" type="Sample" id=7]
 [ext_resource path="res://pong_assets/ music.ogg" type="AudioStream" id=8]
 [ext_resource path="res://pong_assets/KenPixel Blocks.ttf" type="DynamicFontData" id=9]
-[ext_resource path="res://pong_assets/godot.png" type="Texture" id=10]
-[ext_resource path="res://pong_assets/separator.png" type="Texture" id=11]
+[ext_resource path="res://pong_assets/separator.png" type="Texture" id=10]
 
-[sub_resource type="ColorRamp" id=1]
+[sub_resource type="CapsuleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 10.0
+height = 12.7439
+
+[sub_resource type="CapsuleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 10.0
+height = 22.5726
+
+[sub_resource type="CircleShape2D" id=3]
+
+custom_solver_bias = 0.0
+radius = 11.4722
+
+[sub_resource type="ColorRamp" id=4]
 
 offsets = FloatArray( 0, 0.520468, 0.672515, 1 )
 colors = ColorArray( 0.690196, 0.901961, 0.988235, 1, 0.730054, 0.914574, 0.989749, 1, 0.815647, 0.94166, 0.992999, 0.886344, 1, 1, 1, 0 )
 
-[sub_resource type="SampleLibrary" id=2]
+[sub_resource type="SampleLibrary" id=5]
 
 samples/hit = { "db":0.0, "pitch":2.0, "sample":ExtResource( 6 ) }
 samples/lose = { "db":-16.0, "pitch":1.0, "sample":ExtResource( 7 ) }
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=6]
 
 font/size = 50
 font/use_mipmaps = false
@@ -40,17 +56,77 @@ transform/pos = Vector2( 60.4087, 221.68 )
 transform/scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 2 )
 
+[node name="Area2D" type="Area2D" parent="left"]
+
+transform/pos = Vector2( 0, 2.61105 )
+transform/scale = Vector2( 2.1728, 8.03699 )
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 3.49081, 0, 0, 1.96682, 0.861898, -0.183426 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="left/Area2D"]
+
+transform/pos = Vector2( 0.861898, -0.183426 )
+transform/scale = Vector2( 3.49081, 1.96682 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
 [node name="right" type="Sprite" parent="." groups=[ "Paddle" ]]
 
 transform/pos = Vector2( 583.317, 208.989 )
 transform/scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 3 )
 
+[node name="Area2D" type="Area2D" parent="right"]
+
+transform/scale = Vector2( 2.22773, 8.21956 )
+input/pickable = true
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 3.01326, 0, 0, 1.49629, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="right/Area2D"]
+
+transform/scale = Vector2( 3.01326, 1.49629 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
 [node name="ball" type="Sprite" parent="."]
 
 transform/pos = Vector2( 327.091, 228.858 )
 transform/scale = Vector2( 0.1, 0.1 )
+z/z = 1
 texture = ExtResource( 4 )
+
+[node name="Area2D" type="Area2D" parent="ball"]
+
+transform/scale = Vector2( 2.2171, 2.2171 )
+input/pickable = true
+shapes/0/shape = SubResource( 3 )
+shapes/0/transform = Matrix32( 2.90448, 0, 0, 2.90448, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ball/Area2D"]
+
+transform/scale = Vector2( 2.90448, 2.90448 )
+shape = SubResource( 3 )
+trigger = false
+_update_shape_index = 0
 
 [node name="Particles2D" type="Particles2D" parent="."]
 
@@ -83,12 +159,12 @@ params/anim_initial_pos = 0.0
 randomness/linear_velocity = 0.5
 randomness/final_size = 0.65
 color/color = Color( 0.670242, 0.890666, 0.980469, 1 )
-color/color_ramp = SubResource( 1 )
+color/color_ramp = SubResource( 4 )
 
 [node name="SamplePlayer" type="SamplePlayer" parent="."]
 
 config/polyphony = 1
-config/samples = SubResource( 2 )
+config/samples = SubResource( 5 )
 default/volume_db = 0.0
 default/pitch_scale = 1.0
 default/pan = 0.0
@@ -115,7 +191,6 @@ stream/buffering_ms = 500
 
 [node name="UI" type="Control" parent="."]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -135,7 +210,7 @@ margin/left = 248.0
 margin/top = 28.0
 margin/right = 288.0
 margin/bottom = 104.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 6 )
 text = "0"
 percent_visible = 1.0
 lines_skipped = 0
@@ -151,48 +226,21 @@ margin/left = 361.0
 margin/top = 28.0
 margin/right = 401.0
 margin/bottom = 104.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 6 )
 text = "0"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Credits" type="Control" parent="UI"]
-
-visibility/visible = false
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 255.0
-margin/top = 379.0
-margin/right = 401.0
-margin/bottom = 399.0
-
-[node name="Label" type="Label" parent="UI/Credits"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 123.0
-margin/bottom = 14.0
-text = "Created with Godot"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Sprite" type="Sprite" parent="UI/Credits"]
-
-transform/pos = Vector2( 136.144, 5.08396 )
-transform/scale = Vector2( 0.339527, 0.339527 )
-texture = ExtResource( 10 )
-
 [node name="separator" type="Sprite" parent="UI"]
 
 transform/pos = Vector2( 327.559, 196.165 )
-texture = ExtResource( 11 )
+texture = ExtResource( 10 )
+
+[node name="Sprite" type="Sprite" parent="."]
+
+[connection signal="area_enter_shape" from="left/Area2D" to="." method="_on_Area2D_area_enter_shape"]
+
+[connection signal="area_enter" from="ball/Area2D" to="." method="_on_ball_area_enter"]
 
 

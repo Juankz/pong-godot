@@ -21,6 +21,10 @@ var ball_speed = INITIAL_BALL_SPEED
 const PAD_SPEED = 180
 var particle
 
+var area_lpad
+var area_rpad
+var ball_pos
+
 
 func _ready():
 	particle = get_node("Particles2D")
@@ -29,10 +33,13 @@ func _ready():
 	set_process(true)
 	if(OS.get_name()=="Android"):
 		set_process_input(true);
-	pass
+	
+	area_lpad = get_node("left/Area2D")
+	area_rpad = get_node("right/Area2D")
+	ball_pos = get_node("ball").get_pos()
 
 func _process(delta):
-	var ball_pos = get_node("ball").get_pos()
+	ball_pos = get_node("ball").get_pos()
 	var left_rect = Rect2( get_node("left").get_pos() - pad_size*0.5, pad_size )
 	var right_rect = Rect2( get_node("right").get_pos() - pad_size*0.5, pad_size )
 	# Integrate new ball postion
@@ -42,18 +49,6 @@ func _process(delta):
 		direction.y *= -1
 		var hit_edge = get_node("SamplePlayer").play("hit",true);
 		get_node("SamplePlayer").set_pitch_scale(hit_edge,5);
-	
-	# Flip, change direction and increase speed when touching pads
-	if ((left_rect.has_point(ball_pos) and direction.x < 0) or (right_rect.has_point(ball_pos) and direction.x > 0)):
-		direction.x = -direction.x
-		direction.y = randf()*2.0 - 1
-		direction = direction.normalized()
-		ball_speed *= 1.1
-		#Start particle emission
-		particle.set_pos(ball_pos)
-		particle.set_emitting (true)
-		#Play sound
-		get_node("SamplePlayer").play("hit",false);
 	
 	# Check gameover
 	if (ball_pos.x < 0 or ball_pos.x > screen_size.x):
@@ -95,3 +90,20 @@ func _input(event):
 		else:
 			left_pos.y = event.y
 			get_node("left").set_pos(left_pos)
+
+#sta se
+func _on_ball_area_enter( area ):
+	if(area == area_lpad or area == area_rpad):
+		print("collision")
+		on_collision_with_pad()
+
+func on_collision_with_pad():
+	direction.x = -direction.x
+	direction.y = randf()*2.0 - 1
+	direction = direction.normalized()
+	ball_speed *= 1.1
+	#Start particle emission
+	particle.set_pos(ball_pos)
+	particle.set_emitting (true)
+	#Play sound
+	get_node("SamplePlayer").play("hit",false);
