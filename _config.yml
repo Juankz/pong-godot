@@ -14,10 +14,10 @@ baseurl: "/pong-godot"
 # Of course don't forget to change the username and projectname to YOUR username and project
 
 # Name of website
-title: My website
+title: Pong Godot
 
 # Short description of your site
-description: A virtual proof that name is awesome!
+description: Un juego completo para móviles y escritorio hecho con Godot Engine 2.1
 
 # --- Navigation bar options --- #
 
