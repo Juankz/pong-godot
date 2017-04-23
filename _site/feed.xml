@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>My website</title>
-    <description>A virtual proof that name is awesome!</description>
+    <title>Pong Godot</title>
+    <description>Un juego completo para móviles y escritorio hecho con Godot Engine 2.1</description>
     <link>http://juankz.github.io</link>
     <atom:link href="http://juankz.github.io/feed.xml" rel="self" type="application/rss+xml" />
     
