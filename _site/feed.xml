@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>My website</title>
+    <description>A virtual proof that name is awesome!</description>
+    <link>http://username.github.io</link>
+    <atom:link href="http://username.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    
+      <item>
+        <title>Proyecto base</title>
+        <description>
+          Empezando desde ceros - 
+          En este primer post vamos a llevar a cabo la configuración básica de nuestro juego Under what circumstances should we step off a path? When is it essential that we finish what we start? If I bought a bag of peanuts and had an allergic reaction, no one would fault...
+        </description>
+        <pubDate>Sat, 22 Apr 2017 00:00:00 +0000</pubDate>
+        <link>http://username.github.io/2017-04-22-projecto-base/</link>
+        <guid isPermaLink="true">http://username.github.io/2017-04-22-projecto-base/</guid>
+      </item>
+    
+  </channel>
+</rss>
